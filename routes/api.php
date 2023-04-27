@@ -10,7 +10,7 @@ Route::middleware(['auth:api'])->group(function () {
 });
 
 
-Route::apiResource('/user', UserController::class);
+// Route::apiResource('/user', UserController::class);
 
 Route::apiResource('members', MemberController::class);
 

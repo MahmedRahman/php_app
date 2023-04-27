@@ -24,8 +24,8 @@ class User extends Authenticatable
         'password',
         'state',
         'note',
-        'phone_active',
-        'email_active',
+        'start_date',
+        'duration'
     ];
     
 

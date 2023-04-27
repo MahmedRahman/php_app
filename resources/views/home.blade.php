@@ -2,6 +2,7 @@
 
 @section('content')
 <div class="container">
+    
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
@@ -15,7 +16,13 @@
                     @endif
 
                     {{ __('You are logged in!') }}
+                 
                 </div>
+
+              
+            <a href="{{ route('users.index') }}" class="btn btn-primary mb-3" >All Users</a>
+              
+            <a href="{{ route('users.create') }}" class="btn btn-primary mb-3">Add New User</a>
             </div>
         </div>
     </div>
