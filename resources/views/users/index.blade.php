@@ -1,12 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>All Users</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
-</head>
-<body>
+@extends('layouts.app')
+
+@section('content')
+<div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header">{{ __('Dashboard') }}</div>
+
     <div class="container mt-5">
         <table class="table table-striped">
             <thead>
@@ -18,6 +17,7 @@
                     <th>phone</th>
                     <th>start_date</th>
                     <th>duration</th>
+                    <th>openApi</th>
                     <th>Action</th>
 
                 </tr>
@@ -32,6 +32,7 @@
                     <td>{{ $user->phone }}</td>
                     <td>{{ $user->start_date }}</td>
                     <td>{{ $user->duration }}</td>
+                    <td>{{ $user->openapiKey }}</td>
                     <td>
                         <a href="{{ route('users.edit', $user->id) }}" class="btn btn-primary btn-sm">Edit</a>
                         <form action="{{ route('users.destroy', $user->id) }}" method="POST" class="d-inline">
@@ -46,5 +47,9 @@
             </tbody>
         </table>
     </div>
-</body>
-</html>
+    </div>
+    </div>
+    </div>
+    </div>
+
+@endsection

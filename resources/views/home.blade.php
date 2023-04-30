@@ -23,7 +23,8 @@
             <a href="{{ route('users.index') }}" class="btn btn-primary mb-3" >All Users</a>
               
             <a href="{{ route('users.create') }}" class="btn btn-primary mb-3">Add New User</a>
-            </div>
+            
+        </div>
         </div>
     </div>
 </div>

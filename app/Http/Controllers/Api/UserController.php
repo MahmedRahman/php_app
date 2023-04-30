@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Validation\ValidationException;
 use Validator;
+use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
 {
@@ -100,4 +101,54 @@ class UserController extends Controller
 
         return response()->json(['message' => 'User deleted successfully'], 200);
     }
+
+    public function login(Request $request)
+{
+    $validator = Validator::make($request->all(), [
+        'email' => 'required|email',
+        'password' => 'required|min:8',
+    ]);
+
+    if ($validator->fails()) {
+        return response()->json([
+            'status' => false,
+            'code' => 422,
+            'message' => 'Error Validation',
+            'errors' => $validator->errors()
+        ]);
+    }
+
+ 
+
+    if (!Auth::attempt(['email' => $request->email, 'password' => $request->password])) {
+        return response()->json([
+            'status' => false,
+            'code' => 401,
+            'message' => 'Unauthorized',
+        ]);
+    }
+  
+    $user = Auth::user();
+    $token = $user->createToken('authToken')->accessToken;
+    
+    $now = new \DateTime();
+    $start_date = new \DateTime($user->start_date);
+    $end_date = $start_date->modify('+' . $user->duration . ' days');
+    
+    if ($now > $end_date) {
+        return response()->json([
+            'status' => false,
+            'code' => 403,
+            'message' => 'Subscription expired',
+        ]);
+    }
+
+    return response()->json([
+        'status' => true,
+        'code' => 200,
+        'message' => 'Authenticated successfully',
+        'data' => $user,
+    ]);
+}
+
 }

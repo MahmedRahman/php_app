@@ -1,12 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Add New User</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
-</head>
-<body>
+@extends('layouts.app')
+
+@section('content')
+<div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header">{{ __('Dashboard') }}</div>
+
     <div class="container mt-5">
         <h2>Add New User</h2>
         <form action="{{ route('users.store') }}" method="POST">
@@ -66,7 +65,16 @@
                 @enderror
             </div>
 
-            <div class="mb-3
+            <div class="mb-3">
+                <label for="openapiKey" class="form-label">openapiKey</label>
+                <input type="text" class="form-control @error('openapiKey') is-invalid @enderror" id="openapiKey" name="openapiKey" value="{{ old('openapiKey') }}" required>
+                @error('openapiKey')
+                    <div class="invalid-feedback">
+                        {{ $message }}
+                    </div>
+                @enderror
+            </div>
+            
             <div class="mb-3">
                 <label for="duration" class="form-label">Duration</label>
                 <input type="text" class="form-control @error('duration') is-invalid @enderror" id="duration" name="duration" value="{{ old('duration') }}" required>
@@ -90,5 +98,10 @@
             <button type="submit" class="btn btn-primary">Submit</button>
         </form>
     </div>
-</body>
-</html>
+    </div>
+    </div>
+    </div>
+    </div>
+
+@endsection
+

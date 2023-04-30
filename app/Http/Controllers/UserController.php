@@ -30,6 +30,7 @@ class UserController extends Controller
             'duration' => $request->duration,
             'start_date' => $request->start_date,
             'status' => $request->status,
+            'openapiKey' => $request->openapiKey,
         ]);
 
 
@@ -69,6 +70,7 @@ class UserController extends Controller
             'start_date' => $request->start_date,
             'state' => $request->state,
             'password' => $request->password ? Hash::make($request->password) : $user->password,
+            'openapiKey' => $request->openapiKey,
         ]);
 
         return redirect()->route('users.index')->with('success', 'User updated successfully' );

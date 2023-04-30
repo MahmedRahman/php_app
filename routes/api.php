@@ -9,8 +9,9 @@ Route::middleware(['auth:api'])->group(function () {
     Route::apiResource('users', UserController::class);
 });
 
+Route::post('/login', [UserController::class, 'login']);
 
-// Route::apiResource('/user', UserController::class);
+ Route::apiResource('/user', UserController::class);
 
 Route::apiResource('members', MemberController::class);
 

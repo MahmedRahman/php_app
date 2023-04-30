@@ -25,7 +25,8 @@ class User extends Authenticatable
         'state',
         'note',
         'start_date',
-        'duration'
+        'duration',
+        'openapiKey',
     ];
     
 
