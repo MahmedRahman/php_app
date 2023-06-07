@@ -17,7 +17,7 @@
                     <th>phone</th>
                     <th>start_date</th>
                     <th>duration</th>
-                    <th>openApi</th>
+                   
                     <th>Action</th>
 
                 </tr>
@@ -32,7 +32,7 @@
                     <td>{{ $user->phone }}</td>
                     <td>{{ $user->start_date }}</td>
                     <td>{{ $user->duration }}</td>
-                    <td>{{ $user->openapiKey }}</td>
+                    
                     <td>
                         <a href="{{ route('users.edit', $user->id) }}" class="btn btn-primary btn-sm">Edit</a>
                         <form action="{{ route('users.destroy', $user->id) }}" method="POST" class="d-inline">
