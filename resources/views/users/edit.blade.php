@@ -48,15 +48,7 @@
                 <input type="text" class="form-control" id="duration" name="duration" value="{{ $user->duration }}" required>
             </div>
         
-            <div class="mb-3">
-                <label for="openapiKey" class="form-label">openapiKey</label>
-                <input type="text" class="form-control @error('openapiKey') is-invalid @enderror" id="openapiKey" name="openapiKey" value="{{ $user->openapiKey }}" required>
-                @error('openapiKey')
-                    <div class="invalid-feedback">
-                        {{ $message }}
-                    </div>
-                @enderror
-            </div>
+        
 
             <button type="submit" class="btn btn-primary mb-5">Update User</button>
         </form>
