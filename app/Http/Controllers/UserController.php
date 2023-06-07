@@ -30,7 +30,6 @@ class UserController extends Controller
             'duration' => $request->duration,
             'start_date' => $request->start_date,
             'status' => $request->status,
-            'openapiKey' => $request->openapiKey,
         ]);
 
 
