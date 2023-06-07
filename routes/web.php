@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 
@@ -13,11 +14,26 @@ use App\Http\Controllers\UserController;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-Route::resource('users', UserController::class);
 
 Route::get('/', function () {
-    return view('welcome');
-});
+    return view('fornt/index');
+})->name('homeindex');
+
+Route::get('/contact', function () {
+    return view('fornt/contact');
+})->name('contact');
+
+Route::get('/about', function () {
+    return view('fornt/about');
+})->name('about');
+
+Route::get('/features', function () {
+    return view('fornt/features');
+})->name('features');
+
+
+
+Route::resource('users', UserController::class);
 
 Auth::routes();
 
