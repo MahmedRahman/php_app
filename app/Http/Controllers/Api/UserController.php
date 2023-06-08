@@ -45,6 +45,12 @@ class UserController extends Controller
         $validatedData = $validator->validated();
         $validatedData['password'] = bcrypt($validatedData['password']);
 
+        $validatedData['start_date'] = $validatedData['start_date'] ?? now();
+        $validatedData['duration'] = $validatedData['duration'] ?? 7;
+        $validatedData['state'] = $validatedData['state'] ?? "active";
+
+
+
         $user = User::create($validatedData);
 
         return response()->json(['status' => true,'message' => 'User created successfully', 'data' => $user]);
