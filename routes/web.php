@@ -53,3 +53,5 @@ Route::post('/users/store', [App\Http\Controllers\UserController::class,'store']
 Route::get('/users/edit/{id}', [App\Http\Controllers\UserController::class,'edit'])->name('users.edit');
 
 Route::delete('/users/destroy/{id}', [App\Http\Controllers\UserController::class,'destroy'])->name('users.destroy');
+
+Route::view('admin', 'admin.dashbord');
